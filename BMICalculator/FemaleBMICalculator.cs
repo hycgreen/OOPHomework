@@ -6,7 +6,12 @@ namespace BMICalculator
     {
         public override void Calculate()
         {
-            throw new NotImplementedException();
+            var bmi = this.BMI();
+
+            if (bmi < 18.0)
+            {
+                this.BMIInfomation.Recommendation = "太瘦";
+            }
         }
     }
 }
