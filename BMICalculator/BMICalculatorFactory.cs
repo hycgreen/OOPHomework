@@ -6,17 +6,24 @@ namespace BMICalculator
     {
         public static IBMICalculator GetBMICalculator(BMIInformation info)
         {
+            IBMICalculator bmiCalculator;
             switch (info.Gender)
             {
                 case Gender.Male:
-                    return new MaleBMICalculator();
+                    bmiCalculator = new MaleBMICalculator();
+                    break;
 
                 case Gender.Female:
-                    return new FemaleBMICalculator();
+                    bmiCalculator = new FemaleBMICalculator();
+                    break;
 
                 default:
                     throw new NotSupportedException();
             }
+
+            ((BMICalculator) bmiCalculator).BMIInfomation = info;
+
+            return bmiCalculator;
         }
     }
 }

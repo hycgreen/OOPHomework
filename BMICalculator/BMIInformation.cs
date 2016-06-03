@@ -24,7 +24,7 @@ namespace BMICalculator
         public string Recommendation
         {
             get { return recommendation; }
-            private set { recommendation = value; }
+            internal set { recommendation = value; }
         }
     }
 }

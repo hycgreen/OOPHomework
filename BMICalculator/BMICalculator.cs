@@ -12,12 +12,9 @@ namespace BMICalculator
 
         public double BMI()
         {
-            throw new NotImplementedException();
+            return this.BMIInfomation.Wight / Math.Pow(this.BMIInfomation.Height, 2);
         }
 
-        public void Calculate()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Calculate();
     }
 }
