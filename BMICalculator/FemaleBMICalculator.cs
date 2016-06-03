@@ -7,6 +7,7 @@ namespace BMICalculator
         public override void Calculate()
         {
             var bmi = this.BMI();
+            this.BMIInfomation.Recommendation = "適中";
 
             if (bmi < 18.0)
             {
