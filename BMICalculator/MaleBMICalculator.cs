@@ -12,6 +12,11 @@ namespace BMICalculator
             {
                 this.BMIInfomation.Recommendation = "太瘦";
             }
+
+            if (bmi > 25.0)
+            {
+                this.BMIInfomation.Recommendation = "太胖";
+            }
         }
     }
 }
