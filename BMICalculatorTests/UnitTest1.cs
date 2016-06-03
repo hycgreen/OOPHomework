@@ -91,5 +91,26 @@ namespace BMICalculatorTests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Test_Woman_BMI_Less_Then_20_ResultString_Should_Be_TooFat()
+        {
+            //arrange
+            BMIInformation info = new BMIInformation();
+            info.Gender = Gender.Female;
+            info.Height = 1.6;
+            info.Wight = 60;
+
+            IBMICalculator target = BMICalculatorFactory.GetBMICalculator(info);
+
+            //act
+            target.Calculate();
+
+            string actual = info.Recommendation;
+            string expected = "太胖";
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
