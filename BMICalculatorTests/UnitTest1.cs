@@ -56,7 +56,7 @@ namespace BMICalculatorTests
             BMIInformation info = new BMIInformation();
             info.Gender = Gender.Male;
             info.Height = 1.75;
-            info.Wight = 80;
+            info.Wight = 70;
 
             IBMICalculator target = BMICalculatorFactory.GetBMICalculator(info);
 
