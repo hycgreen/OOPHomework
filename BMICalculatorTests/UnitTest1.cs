@@ -27,5 +27,27 @@ namespace BMICalculatorTests
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_Man_BMI_More_Then_25_ResultString_Should_Be_TooFat()
+        {
+            //arrange
+            BMIInformation info = new BMIInformation();
+            info.Gender = Gender.Male;
+            info.Height = 1.75;
+            info.Wight = 80;
+
+            IBMICalculator target = BMICalculatorFactory.GetBMICalculator(info);
+
+            //act
+            target.Calculate();
+
+            string actual = info.Recommendation;
+            string expected = "太胖";
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
