@@ -8,7 +8,7 @@ namespace BMICalculatorTests
     public class UnitTest1
     {
         [TestMethod]
-        public void Test_Man_BMI_Less_Then_20_ResultString_Should_Be_TooThin()
+        public void Test_Man_BMI_Less_Than_20_ResultString_Should_Be_TooThin()
         {
             //arrange
             BMIInformation info = new BMIInformation();
@@ -29,7 +29,7 @@ namespace BMICalculatorTests
         }
 
         [TestMethod]
-        public void Test_Man_BMI_More_Then_25_ResultString_Should_Be_TooFat()
+        public void Test_Man_BMI_More_Than_25_ResultString_Should_Be_TooFat()
         {
             //arrange
             BMIInformation info = new BMIInformation();
@@ -71,7 +71,7 @@ namespace BMICalculatorTests
         }
 
         [TestMethod]
-        public void Test_Woman_BMI_Less_Then_20_ResultString_Should_Be_TooThin()
+        public void Test_Woman_BMI_Less_Than_20_ResultString_Should_Be_TooThin()
         {
             //arrange
             BMIInformation info = new BMIInformation();
@@ -92,7 +92,7 @@ namespace BMICalculatorTests
         }
 
         [TestMethod]
-        public void Test_Woman_BMI_Less_Then_20_ResultString_Should_Be_TooFat()
+        public void Test_Woman_BMI_More_Than_22_ResultString_Should_Be_TooFat()
         {
             //arrange
             BMIInformation info = new BMIInformation();
@@ -112,5 +112,25 @@ namespace BMICalculatorTests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Test_Woman_BMI_Between_18_And_22_ResultString_Should_Be_Normal()
+        {
+            //arrange
+            BMIInformation info = new BMIInformation();
+            info.Gender = Gender.Female;
+            info.Height = 1.6;
+            info.Wight = 50;
+
+            IBMICalculator target = BMICalculatorFactory.GetBMICalculator(info);
+
+            //act
+            target.Calculate();
+
+            string actual = info.Recommendation;
+            string expected = "適中";
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
